@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: "file:./config/application-local.properties"
+
+  application:
+    name: ver3-member-mvc
+
+  datasource:
+    url: jdbc:oracle:thin:@//localhost:1522/ORCLPDB1
+    username: VER3
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  thymeleaf:
+    cache: false
