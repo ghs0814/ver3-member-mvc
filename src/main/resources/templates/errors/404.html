@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404 오류</title>
+</head>
+<body>
+
+<h1>404 - 회원을 찾을 수 없습니다.</h1>
+
+<p th:text="${message}"></p>
+
+<a th:href="@{/members}">회원 목록으로 돌아가기</a>
+
+</body>
+</html>

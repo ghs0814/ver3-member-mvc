@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 등록</title>
+</head>
+<body>
+
+<h1>회원 등록</h1>
+
+<form th:action="@{/members}"
+      th:object="${memberForm}"
+      method="post"
+      novalidate>
+
+    <div>
+        <label for="name">이름</label>
+        <input type="text" th:field="*{name}">
+
+        <p th:if="${#fields.hasErrors('name')}"
+           th:errors="*{name}"
+           style="color: red;"></p>
+    </div>
+
+    <div>
+        <label for="email">이메일</label>
+        <input type="email" th:field="*{email}">
+
+        <p th:if="${#fields.hasErrors('email')}"
+           th:errors="*{email}"
+           style="color: red;"></p>
+    </div>
+
+    <button type="submit">등록</button>
+
+</form>
+
+<a th:href="@{/members}">목록으로</a>
+
+</body>
+</html>

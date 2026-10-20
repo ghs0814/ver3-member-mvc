@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 목록</title>
+</head>
+<body>
+
+<h1>회원 목록</h1>
+
+<a th:href="@{/members/new}">회원 등록</a>
+
+<p th:if="${#lists.isEmpty(members)}">
+    등록된 회원이 없습니다.
+</p>
+
+<table border="1" th:unless="${#lists.isEmpty(members)}">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>이름</th>
+        <th>이메일</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="member : ${members}">
+        <td th:text="${member.id}"></td>
+        <td>
+            <a th:href="@{/members/{id}(id=${member.id})}"
+               th:text="${member.name}"></a>
+        </td>
+        <td th:text="${member.email}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
